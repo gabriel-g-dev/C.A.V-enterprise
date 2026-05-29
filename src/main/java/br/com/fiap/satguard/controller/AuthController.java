@@ -4,6 +4,7 @@ import br.com.fiap.satguard.dto.RegisterDTO;
 import br.com.fiap.satguard.model.Usuario;
 import br.com.fiap.satguard.repository.UsuarioRepository;
 import br.com.fiap.satguard.service.TokenService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -15,13 +16,12 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/auth")
+@RequiredArgsConstructor
 public class AuthController {
-    @Autowired
-    private AuthenticationManager authenticationManager;
-    @Autowired
-    private UsuarioRepository repository;
-    @Autowired
-    private TokenService tokenService;
+    
+    private final AuthenticationManager authenticationManager;
+    private final UsuarioRepository repository;
+    private final TokenService tokenService;
 
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody LoginDTO data) {
@@ -44,3 +44,4 @@ public class AuthController {
         return ResponseEntity.ok().build();
     }
 }
+

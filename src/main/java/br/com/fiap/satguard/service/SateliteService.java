@@ -1,21 +1,24 @@
 package br.com.fiap.satguard.service;
+
 import br.com.fiap.satguard.model.Satelite;
 import br.com.fiap.satguard.dto.SateliteDTO;
 import br.com.fiap.satguard.repository.SateliteRepository;
+import br.com.fiap.satguard.exception.ResourceNotFoundException;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class SateliteService {
-    @Autowired
-    private SateliteRepository repository;
+    
+    private final SateliteRepository repository;
 
     public Page<Satelite> findAll(Pageable pageable) { return repository.findAll(pageable); }
     
-    public Satelite findById(Integer id) { return repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Satelite nao encontrado")); }
+    public Satelite findById(Integer id) { return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Satelite nao encontrado")); }
     
     public Satelite save(SateliteDTO dto) { 
         Satelite entity = new Satelite();
