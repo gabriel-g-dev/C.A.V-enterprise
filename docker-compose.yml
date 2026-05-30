@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: satguard-app-${RM:-98043}
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:h2:tcp://db:9092/mem:testdb
+      - PORT=8080
+    depends_on:
+      - db
+    networks:
+      - satguard-network
+
+  db:
+    image: oscarfonts/h2
+    container_name: satguard-db-${RM:-98043}
+    ports:
+      - "1521:1521"
+      - "81:81"
+    environment:
+      - H2_OPTIONS=-tcpAllowOthers -ifNotExists
+    volumes:
+      - h2-data:/opt/h2-data
+    networks:
+      - satguard-network
+
+networks:
+  satguard-network:
+    driver: bridge
+
+volumes:
+  h2-data:
