@@ -7,8 +7,8 @@ A API SatGuard é o módulo responsável pelo monitoramento e gerenciamento da e
 ## 🔗 Links Importantes
 
 - **Link do Vídeo de Apresentação (Pitch):** [Apresentação YouTube](https://youtube.com/exemplo-video-pitch)
-- **Link do Deploy da Aplicação:** [SatGuard API - Deploy](https://satguard-api-java.onrender.com)
-- **Documentação da API (Swagger/OpenAPI):** [Swagger UI Deploy](https://satguard-api-java.onrender.com/swagger-ui.html) (ou acesse `http://localhost:8080/swagger-ui.html` rodando localmente)
+- **Link do Deploy da Aplicação:** [SatGuard API - Deploy](https://c-a-v-enterprise.onrender.com)
+- **Documentação da API (Swagger/OpenAPI):** [Swagger UI Deploy](https://c-a-v-enterprise.onrender.com/swagger-ui.html) (ou acesse `http://localhost:8080/swagger-ui.html` rodando localmente)
 
 ## 🛠️ Tecnologias Utilizadas
 
