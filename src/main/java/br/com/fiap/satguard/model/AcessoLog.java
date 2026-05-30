@@ -16,7 +16,4 @@ public class AcessoLog {
     @Column(name = "ip_address", length = 50)
     private String ipAddress;
 
-    @ManyToOne
-    @JoinColumn(name = "usuario_id", insertable = false, updatable = false)
-    private Usuario usuario;
 }
