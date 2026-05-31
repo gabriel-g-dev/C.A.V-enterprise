@@ -39,9 +39,16 @@ A API SatGuard é o módulo responsável pelo monitoramento e gerenciamento da e
 ## 📚 Informações Relevantes para Avaliação
 
 Para atingir a nota máxima nos critérios exigidos da GS:
-- **Herança (MappedSuperclass):** A classe `Satelite` e `DetritoEspacial` herdam características da classe abstrata `ObjetoEspacial` (Herança no código Java).
-- **Embedded:** A entidade `Plataforma` utiliza a classe embutida `@Embedded Coordenada`.
+- **Herança Relacional Real (Table-Per-Type / JOINED):** A classe `ObjetoEspacial` utiliza `@Inheritance(strategy = InheritanceType.JOINED)`, fazendo com que `Satelite` e `DetritoEspacial` herdem a tabela no banco usando `@PrimaryKeyJoinColumn`.
+- **Value Objects / Embedded:** A entidade `Empresa` utiliza a classe embutida `@Embedded Endereco`, e a entidade `Plataforma` utiliza a classe `@Embedded Coordenada`.
 - **Chave Composta:** A entidade de auditoria `AcessoLog` utiliza uma chave composta baseada em `@EmbeddedId` (`AcessoLogId`).
 - **Múltiplas Tabelas:** 7 tabelas base conectadas através de relacionamentos `@ManyToOne`.
 - **Boas Práticas e Arquitetura:** Controllers com resposta paginada (`Pageable`), DTOs utilizando `Records` do Java 14+, e retorno `EntityModel` provendo links HATEOAS.
 - **Tratamento de Exceções:** Implementado globalmente através da classe `GlobalExceptionHandler` utilizando `@ControllerAdvice`.
+- **Testes Unitários (QA):** Implementados utilizando JUnit 5 e Mockito (ex: `SateliteServiceTest`) para validação isolada das regras de negócio.
+
+## 👥 Integrantes
+
+- **André Bellandi Vital Rodrigues** - RM: 564662
+- **Vitor Augusto Oliveira de Abreu** - RM: 564227
+- **Gabriel Garcia Mayo Delatore** - RM: 563298
