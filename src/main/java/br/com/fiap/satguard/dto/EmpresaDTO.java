@@ -10,5 +10,10 @@ public record EmpresaDTO(
 
         @NotBlank(message = "O país da empresa é obrigatório")
         @Size(max = 50, message = "O país deve ter no máximo 50 caracteres")
-        String empresaPais
+        String empresaPais,
+
+        String enderecoRua,
+        String enderecoCidade,
+        String enderecoEstado,
+        String enderecoCep
 ) {}

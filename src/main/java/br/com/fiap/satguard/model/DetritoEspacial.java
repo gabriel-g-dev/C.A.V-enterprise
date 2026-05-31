@@ -11,13 +11,8 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Entity
 @Table(name = "DETRITO_ESPACIAL")
-@AttributeOverride(name = "velocidade", column = @Column(name = "detrito_velocidade", precision = 10, scale = 2))
+@PrimaryKeyJoinColumn(name = "objeto_id")
 public class DetritoEspacial extends ObjetoEspacial {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "detrito_id")
-    private Integer detritoId;
 
     @Column(name = "detrito_tamanho", precision = 4, scale = 1)
     private BigDecimal detritoTamanho;

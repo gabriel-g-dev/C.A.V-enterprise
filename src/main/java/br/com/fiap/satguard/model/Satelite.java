@@ -12,13 +12,8 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Entity
 @Table(name = "SATELITES")
-@AttributeOverride(name = "velocidade", column = @Column(name = "satelite_velocidade", precision = 10, scale = 2))
+@PrimaryKeyJoinColumn(name = "objeto_id")
 public class Satelite extends ObjetoEspacial {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "satelite_id")
-    private Integer sateliteId;
 
     @Column(name = "satelite_nome", length = 50)
     private String sateliteNome;

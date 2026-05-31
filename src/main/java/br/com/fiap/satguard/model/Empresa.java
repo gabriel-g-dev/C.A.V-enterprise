@@ -20,4 +20,7 @@ public class Empresa {
 
     @Column(name = "empresa_pais", length = 50)
     private String empresaPais;
+
+    @Embedded
+    private Endereco endereco;
 }
