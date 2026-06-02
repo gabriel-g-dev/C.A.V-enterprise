@@ -36,6 +36,20 @@ A API SatGuard é o módulo responsável pelo monitoramento e gerenciamento da e
    ```
 5. Acesse a documentação pelo navegador: `http://localhost:8080/swagger-ui.html`
 
+### 🔑 Como Testar a API (Autenticação JWT)
+A API é protegida pelo Spring Security. Para testar as rotas fechadas (POST, PUT, DELETE), você deve primeiro gerar o Token de Acesso:
+1. Abra o Swagger e encontre a rota `POST /auth/login`.
+2. Envie o seguinte JSON de teste:
+   ```json
+   {
+     "email": "admin@satguard.com",
+     "senha": "123456"
+   }
+   ```
+3. Copie a string do `token` que será retornada.
+4. Vá até o topo da página do Swagger, clique no botão **Authorize**, digite `Bearer ` seguido do token copiado (exemplo: `Bearer eyJhbG...`) e clique em Authorize.
+5. Pronto! Agora você pode testar as rotas de criação livremente.
+
 ## 📚 Informações Relevantes para Avaliação
 
 Para atingir a nota máxima nos critérios exigidos da GS:
